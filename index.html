@@ -212,7 +212,7 @@
     </div>
 
     <!-- SETTINGS -->
-     <div class="content" id="settings">
+<div class="content" id="settings">
   <!-- Texto do desenvolvedor -->
   <div class="option" style="margin-top:20px; text-align:center;">
     <span id="devLabel" style="font-size:16px; font-weight:bold; color:#25cf52;">
@@ -244,35 +244,23 @@
   }
 </style>
 
-<!-- Script para abrir Free Fire -->
+<!-- Script para abrir Free Fire apenas no app -->
 <script>
   document.getElementById("btnFreeFire").addEventListener("click", function() {
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
     if (/android/i.test(userAgent)) {
-      // Android → tenta abrir o app, senão vai pra Google Play
+      // Android → tenta abrir o app
       window.location.href = "intent://#Intent;scheme=freefire;package=com.dts.freefireth;end";
-      setTimeout(() => {
-        window.location.href = "https://play.google.com/store/apps/details?id=com.dts.freefireth";
-      }, 1500);
-
     } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-      // iOS → tenta abrir deep link, senão vai pra App Store
+      // iOS → tenta abrir via deep link
       window.location.href = "freefire://";
-      setTimeout(() => {
-        window.location.href =
-      }, 1500);
-
     } else {
-      // Outros dispositivos → site oficial
-      window.location.href = "https://ff.garena.com/";
+      // Outros dispositivos → não faz nada
+      alert("Este botão funciona apenas em dispositivos Android ou iOS com Free Fire instalado.");
     }
   });
 </script>
-      </div>
-    </div>
-  </div>
-
   <script>
     const tabs = document.querySelectorAll('.tab');
     const contents = document.querySelectorAll('.content');
